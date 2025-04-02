@@ -10,7 +10,7 @@ This repository contains my homework assignments for the **Machine Learning & AI
 
 ## Technologies
 
-- Python, TensorFlow/PyTorch, Scikit-learn
+- Python
 
 ## Usage
 
@@ -18,7 +18,7 @@ This repository contains my homework assignments for the **Machine Learning & AI
    ```bash
    git clone https://github.com/flashdato/ML_-_AI_2025.git
    ```
-2. Work on assignments and projects as per the course schedule.
+2. Working on assignments and projects as per the course schedule.
 
 ## Notes
 
