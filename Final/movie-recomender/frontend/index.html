@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moviegesst | AI Movie Recommender</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 Movieggest</h1>
+            <p>Enter a movie you love, and let our AI find your next favorite.</p>
+        </header>
+
+        <main>
+            <!-- Find this section in your index.html -->
+            <div class="search-box">
+                <!-- And REPLACE it with this: -->
+                <div class="autocomplete-container">
+                    <input type="text" id="movie-input" placeholder="e.g., Inception" autocomplete="off">
+                    <div id="autocomplete-results" class="autocomplete-items"></div>
+                </div>
+                <button id="recommend-btn">Find Movies</button>
+            </div>
+
+            <div id="results-container">
+                <div id="loader" class="loader" style="display: none;"></div>
+                <p id="error-message" class="error-message"></p>
+                <div id="recommendations-grid" class="recommendations-grid">
+                    <!-- Recommendation cards will be inserted here -->
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>A Machine Learning Project</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,206 @@
+/* Using a modern CSS reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Define a color palette using CSS variables for easy theming */
+:root {
+    --bg-color: #111827;
+    --primary-color: #1f2937;
+    --secondary-color: #374151;
+    --accent-color: #38bdf8;
+    --text-color: #f9fafb;
+    --text-muted-color: #9ca3af;
+    --error-color: #f87171;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: var(--text-muted-color);
+    font-size: 1.1rem;
+}
+
+.search-box {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+#movie-input {
+    width: 100%; /* <-- THIS IS THE FIX */
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+#movie-input::placeholder {
+    color: var(--text-muted-color);
+}
+
+#movie-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+#recommend-btn {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+#recommend-btn:hover {
+    background-color: #0ea5e9; /* A slightly darker accent */
+}
+
+#recommend-btn:active {
+    transform: scale(0.98);
+}
+
+/* Loading Spinner */
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--secondary-color);
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    margin: 2rem auto;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Recommendations Grid */
+.recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.movie-card {
+    background-color: var(--primary-color);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid var(--secondary-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.error-message {
+    text-align: center;
+    color: var(--error-color);
+    font-weight: 600;
+    background-color: rgba(248, 113, 113, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+footer {
+    text-align: center;
+    margin-top: 4rem;
+    color: var(--text-muted-color);
+}
+
+/* --- Add this new code to the end of style.css --- */
+
+/* Autocomplete container */
+.autocomplete-container {
+    position: relative;
+    flex-grow: 1; /* Allows the container to grow and fill space */
+}
+
+/* The list of autocomplete items */
+.autocomplete-items {
+    position: absolute;
+    border-top: none;
+    z-index: 99;
+    top: 100%; /* Position it right below the input */
+    left: 0;
+    right: 0;
+    background-color: var(--primary-color);
+    border-radius: 0 0 8px 8px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Individual autocomplete item */
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid var(--secondary-color);
+    color: var(--text-muted-color);
+}
+
+.autocomplete-items div:last-child {
+    border-bottom: none;
+}
+
+/* Hover effect for items */
+.autocomplete-items div:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+}
+
+/* Styling for the matched part of the text */
+.autocomplete-items div strong {
+    color: var(--accent-color);
+    font-weight: 600;
+}
